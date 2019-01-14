@@ -1,5 +1,17 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Link, Redirect, withRouter } from "react-router-dom";
+// import { BrowserRouter, Route, Link, Redirect, withRouter } from "react-router-dom";
+
+const fakeAuthCentralState = {
+	isAuthenticated: false,
+	authenticate(callback) {
+		this.isAuthenticated = true;
+		setTimeout(callback, 300);
+	},
+	signout(callback) {
+		this.isAuthenticated = false;
+		setTimeout(callback, 300);
+	}
+};
 
 class Login extends React.Component {
 	constructor(props) {
