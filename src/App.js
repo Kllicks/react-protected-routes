@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+// import logo from './logo.svg';
 import './App.css';
 import { BrowserRouter, Route, Link, Redirect, withRouter } from "react-router-dom";
+import Login from './Login';
 
 const fakeAuthCentralState = {
 	isAuthenticated: false,
@@ -15,42 +16,8 @@ const fakeAuthCentralState = {
 	}
 };
 
-
 const Public = () => <h3>Public Content</h3>;
 const Protected = () => <h3>Protected Content</h3>;
-
-class Login extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			redirectToReferrer: false
-		};
-	}
-	
-	login = () => {
-		fakeAuthCentralState.authenticate(() => {
-			this.setState(() => ({
-				redirectToReferrer: true
-			}));
-		});
-	}
-
-	render() {
-		const { from } = this.props.location.state || { from: { pathname: '/' } };
-		const { redirectToReferrer } = this.state;
-
-		if (redirectToReferrer === true) {
-			this.props.history.push(from.pathname);
-		}
-
-		return (
-			<div>
-				<p>Please, you need to be authenticated to to view this content</p>
-				<button onClick={this.login}>Log in</button>
-			</div>
-		)
-	}
-}
 
 const ProtectedRoute = ({ component: Component, ...rest }) => (
 	<Route {...rest} render={(props) => (
