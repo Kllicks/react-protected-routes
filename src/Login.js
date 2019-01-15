@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 // import { BrowserRouter, Route, Link, Redirect, withRouter } from "react-router-dom";
 
+// figure out how to only have this in app.js
 const fakeAuthCentralState = {
 	isAuthenticated: false,
 	authenticate(callback) {

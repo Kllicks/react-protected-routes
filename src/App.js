@@ -4,6 +4,7 @@ import './App.css';
 import { BrowserRouter, Route, Link, Redirect, withRouter } from "react-router-dom";
 import Login from './Login';
 
+// anything outside of render maybe put into functional components
 const fakeAuthCentralState = {
 	isAuthenticated: false,
 	authenticate(callback) {
@@ -42,7 +43,7 @@ const AuthButton = withRouter(({ history }) => (
 	)
 ));
 
-
+// app.js
 class App extends Component {
 	render() {
 		return (
